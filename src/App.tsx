@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import './App.css';
+import { Container, Button } from "react-bootstrap";
 
+interface Movie{
+  name: string;
+  year: string;
+  url: string;
+  genres: string[];
+}
+
+//so basically the state is an array of movies which you can create using a form
 function App() {
 
-  const [num, setNum] = useState<string | number | boolean>(5);
+  const [movie, setMovie] = useState<Movie[]>([]);
 
-  const handleNum = () : void=> {
-    setNum(20)
-  }
   return (
-    <div className="App">
-      <h1>{num}</h1>
-      <button onClick={handleNum}>click me</button>
-    </div>
+    <Container >
+      <h1>Movies I want to watch</h1>
+      <Button>click me</Button>
+    </Container>
   );
 }
 
