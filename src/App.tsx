@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import './App.css';
 import { Container } from "react-bootstrap";
 import List from './components/List'
+import Form from './components/Form'
 
 interface MovieState {
   movie: {
   name: string;
   year: string;
-  url: string;
-  genres: string[];
+  imgUrl: string;
+  desc: string;
 }[]
 }
 
@@ -22,6 +23,7 @@ function App() {
       <div>
         <h1>Movies I want to watch</h1>
         <List movie={movie} />
+        <Form />
       </div>
     </Container>
   );
