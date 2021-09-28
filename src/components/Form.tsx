@@ -9,6 +9,36 @@ const AddForm = () => {
         note: "",
         img: ""
     })
+
+    // usually in react jsx onChange = (e) => setChange(e.target.value) same thing here but the e type has been defined as a react change evnet ehich is an html input or text area. targets the names and set it to the value
+  
+      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleClick = () => {
+        if(!input.name || !input.age) return
+
+        // setPeople([
+        //     ...movie,
+        //     {
+        //         name: input.name,
+        //         year: parseInt(input.age),
+        //         imgUrl: input.img,
+        //         desc: input.note
+        //     }
+        // ]);
+
+        setInput({
+            name: "",
+            age: "",
+            img: "",
+            note: ""
+        })
+    }
     return (
       <div className='AddToList'>
         <Form>
