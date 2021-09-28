@@ -44,9 +44,10 @@
 }
 
 .AddToList-btn {
+	width: 100%;
 	padding: 0.5rem;
 	cursor: pointer;
-	background-color: #0b5468;
+	background-color: #680b44;
 	font-weight: 700;
 	color: white;
 	border: none;
