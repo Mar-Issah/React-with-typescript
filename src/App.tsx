@@ -13,23 +13,21 @@ export interface MovieState {
 }[]
 }
 
-//so basically the state is an array of movies which you can create using a form
 function App() {
 
   const [movie, setMovie] = useState<MovieState['movie']>([
      {
-      name: "LeBron James",
-      year: 35,
-      imgUrl: "https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png",
-      desc: "Allegeric to staying on the same team",
-    },
-    
+      name: "Vacation Friends",
+      year: 2021,
+      imgUrl: "https://m.media-amazon.com/images/M/MV5BZmI0YTY4YTYtODk4MS00ZWE3LWJjYzUtODAwOWM5YWY4MWUwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX67_CR0,0,67,98_AL_.jpg",
+      desc: "A couple meets up with another couple while on vacation in Mexico",
+    }
   ]);
 
   return (
     <Container className='d-flex justify-content-center mt-5'>
       <div>
-        <h1>Movies I want to watch</h1>
+        <h1 className="text-center">Movies I want to watch</h1>
         <List movie={movie} />
         <Form  movie={ movie} setMovie={ setMovie} />
       </div>
