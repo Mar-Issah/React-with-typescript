@@ -1,13 +1,6 @@
 import React from 'react'
+import {MovieState as MovieProps} from "../App"
 
-interface MovieProps {
-  movie: {
-  name: string;
-  year: string;
-  imgUrl: string;
-  desc: string;
-}[]
-}
 const List:React.FC<MovieProps> = ({movie}) => {
 
     // this how to write a function tell typescript it isa fxn retuning an array of jsx element 

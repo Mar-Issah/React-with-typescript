@@ -1,7 +1,15 @@
 import React, {useState} from 'react'
 import { Form } from "react-bootstrap";
+import {MovieState as Props} from "../App"
 
-const AddForm = () => {
+//to know the types hover over the movie/setMovie property in the app component react define it when you hover
+interface IProps {
+    movie: Props["movie"]
+    setMovie: React.Dispatch<React.SetStateAction<Props["movie"]>>
+}
+
+//we must let typescrtpt kow that this is a react functional component with the props movie and setmovie which we also have to define above
+const AddForm: React.FC<IProps>= ({movie, setMovie}) => {
 
   const [input, setInput] = useState({
         name: "",
@@ -16,17 +24,17 @@ const AddForm = () => {
   
     // when you hover the onchange/its param react give you the type which typescript understands but when it is in the diff fxn fxn you get the errors 
   
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) :void=> {
         setInput({
             ...input,
             [e.target.name]: e.target.value
         })
     }
 
-    const handleClick = () => {
+    const handleClick = () :void=> {
         if(!input.name || !input.year) return
 
-        // setPeople([
+        // setMovie([
         //     ...movie,
         //     {
         //         name: input.name,
@@ -80,7 +88,7 @@ const AddForm = () => {
                 onChange={handleChange}
                />
           </Form.Group>
-          <button type="submit"  className="AddToList-btn">Submit</button>
+          <button type="submit"  className="AddToList-btn">Add To The List</button>
         </Form>
     </div>
     )
