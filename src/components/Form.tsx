@@ -11,6 +11,10 @@ const AddForm = () => {
     })
 
     // usually in react jsx onChange = (e) => setChange(e.target.value) same thing here but the e type has been defined as a react change evnet ehich is an html input or text area. targets the names and set it to the value
+
+    //with just the e params typecript doesnt understand what it means and gives it the type any we need to tell it what it means which is a react change event coming from an input/text elemnent
+  
+    // when you hover the onchange/its param react give you the type which typescript understands but when it is in the diff fxn fxn you get the errors 
   
       const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput({
@@ -20,7 +24,7 @@ const AddForm = () => {
     }
 
     const handleClick = () => {
-        if(!input.name || !input.age) return
+        if(!input.name || !input.year) return
 
         // setPeople([
         //     ...movie,
@@ -34,11 +38,13 @@ const AddForm = () => {
 
         setInput({
             name: "",
-            age: "",
+            year: "",
             img: "",
-            note: ""
+            desc: ""
         })
     }
+
+    console.log(input)
     return (
       <div className='AddToList'>
         <Form>
@@ -62,7 +68,7 @@ const AddForm = () => {
           <Form.Control type="text" placeholder="Enter image url" 
                 className="AddToList-input"
                 name="url"
-                value={input.url}
+                value={input.img}
                 onChange={handleChange}
                />
           </Form.Group>
