@@ -34,15 +34,15 @@ const AddForm: React.FC<IProps>= ({movie, setMovie}) => {
     const handleClick = () :void=> {
         if(!input.name || !input.year) return
 
-        // setMovie([
-        //     ...movie,
-        //     {
-        //         name: input.name,
-        //         year: parseInt(input.age),
-        //         imgUrl: input.img,
-        //         desc: input.note
-        //     }
-        // ]);
+        setMovie([
+            ...movie,
+            {
+                name: input.name,
+                year: parseInt(input.age),
+                imgUrl: input.img,
+                desc: input.note
+            }
+        ]);
 
         setInput({
             name: "",
@@ -88,7 +88,7 @@ const AddForm: React.FC<IProps>= ({movie, setMovie}) => {
                 onChange={handleChange}
                />
           </Form.Group>
-          <button type="submit"  className="AddToList-btn">Add To The List</button>
+          <button type="submit" onClick={handleClick} className="AddToList-btn">Add To The List</button>
         </Form>
     </div>
     )
